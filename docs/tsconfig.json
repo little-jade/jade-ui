@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "moduleResolution": "Node",
+    //   "resolveJsonModule": true,
+    //   "allowSyntheticDefaultImports": true,
+    //   "esModuleInterop": true,
+    //   "forceConsistentCasingInFileNames": true,
+    //   "strict": true,
+    //   "noImplicitAny": false,
+    //   "skipLibCheck": true,
+    //   "lib": ["WebWorker"],
+    //   "paths": {
+    //     "element-plus": ["../packages/element-plus"],
+    //     "~/*": ["./.vitepress/vitepress/*"]
+    //   },
+      "types": ["node"],
+      "jsx": "preserve"
+    },
+    // "include": ["**/*", ".vitepress/**/*"],
+    "exclude": ["node_modules"]
+  }
