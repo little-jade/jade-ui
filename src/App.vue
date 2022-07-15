@@ -9,6 +9,9 @@ import TheWelcome from './components/TheWelcome.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <JaCard header = "">
+        <template v-slot:header>header slot</template>
+        card jade</JaCard>
     </div>
   </header>
 
