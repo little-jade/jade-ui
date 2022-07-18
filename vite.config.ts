@@ -9,7 +9,16 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
+      '@theme': fileURLToPath(new URL('./src/theme/scss', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  css: {
+		//css预处理
+		preprocessorOptions: {
+			scss: {
+				// additionalData: '@import "@theme/bootstrap.scss";'
+			}
+		}
+	}
 })

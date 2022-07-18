@@ -1,12 +1,15 @@
 import type { App } from '@vue/runtime-core'
 import { JaCard } from '@/components/card'
+import { JaButton } from '@/components/button'
 
 const components = [
-    JaCard
+    JaCard,
+    JaButton
 ]
 
 export {
-    JaCard
+    JaCard,
+    JaButton
 }
 export default {
     install: function(app: App) {

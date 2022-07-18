@@ -1,50 +1,36 @@
 <template>
-<div class = "card" :class = "[`card--is-${shadow}-shadow`]">
-  <header v-if = "header || $slots.header" class = "card__header">
-    <slot name = "header">{{header}}</slot>
-  </header>
-  <main :class = "bodyStyle ? [] : 'card__body'" :style = "bodyStyle">
+<div class="card" :class="`card-${type} card-${state}`">
+  <div v-if="$slots.header" class="card-header">
+    <slot name="header"></slot>
+  </div>
+  <img v-if="imgUrl" class="card-img-top" :src="imgUrl" alt="card top img"/>
+  <div class="card-body">
+    <h1 v-if="headline" class="card-title">{{ headline }}</h1>
+    <h2 v-if="subhead">{{ subhead }}</h2>
+    <p v-if="text" class="card-text">{{ text }}</p>
     <slot></slot>
-  </main>
+  </div>
+  <div v-if="$slots.footer" class="card-footer">
+    <slot name="footer"></slot>
+  </div>
 </div>
 </template>
 
 <script setup lang="ts">
 import { withDefaults } from 'vue'
-import type { StyleValue } from 'vue'
-type CardType = 'always' | 'hover' | 'never'
-interface CardProps {
-  header?: String
-  bodyStyle?: StyleValue
-  shadow?: CardType
+// import type { StyleValue } from 'vue'
+type CardType = 'elevated' | 'filled' | 'outlined'
+type CardState = 'enabled' | 'disabled'
+interface Props {
+  type?: CardType
+  state?: CardState
+  imgUrl?: string
+  headline?: string
+  subhead?: string
+  text?: string
 }
-withDefaults(defineProps<CardProps>(), {
-  shadow: 'always',
+withDefaults(defineProps<Props>(), {
+  type: 'filled',
+  CardState: "enabled"
 })
 </script>
-
-<style lang = 'scss' scoped>
-.card {
-  border-radius: 2px;
-  border: 1px solid grey;
-  background-color: white;
-  overflow: hidden;
-  color: black;
-  transition: 0.3s;
-  &--is-always-shadow {
-    box-shadow: 0 0 5px grey;
-  }
-  &--is-hover-shadow:hover {
-    box-shadow: 0 0 5px grey;
-  }
-  &__header {
-    font-size: 16px;
-    border-bottom: 1px solid grey;
-    padding-left: 20px;
-  }
-  &__body {
-    padding: 20px;
-    font-size: 14px;
-  }
-}
-</style>

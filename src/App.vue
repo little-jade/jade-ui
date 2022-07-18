@@ -9,9 +9,20 @@ import TheWelcome from './components/TheWelcome.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <JaCard header = "">
-        <template v-slot:header>header slot</template>
-        card jade</JaCard>
+      <JaCard 
+      imgUrl="/src/assets/card.jpg"
+      headline="Headline"
+      subhead="Subline"
+      text="Some quick example text to build on the card title and make up the bulk of the card's content."
+      >
+        <template #header>Header </template>
+        <template #footer>footer<JaButton>Action</JaButton>
+        <JaButton type="text">Button </JaButton></template>
+        <JaButton>Action</JaButton>
+        <JaButton type="text">Button</JaButton>
+      </JaCard>
+      <JaButton>Button</JaButton>
+      <JaCard>V-card</JaCard>
     </div>
   </header>
 
