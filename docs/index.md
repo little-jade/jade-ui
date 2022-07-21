@@ -2,8 +2,8 @@
 layout: home
 
 hero:
-  name: VuePress
-  text: Vite & Vue powered static site generator.
+  name: JadeUI
+  text: Vue3 component libiray.
   tagline: Lorem ipsum...
   actions:
     - theme: brand

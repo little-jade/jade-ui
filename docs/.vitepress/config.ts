@@ -2,6 +2,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  title: 'JadeUI',
+  description: 'Just playing around.',
   themeConfig: {
     nav: [
       { text: 'component', link: '/component/card' },
@@ -27,5 +29,11 @@ export default defineConfig({
       ]
     }
   
+  },
+  markdown: {
+    config: (md) => {
+      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
+      md.use(demoBlockPlugin)
+    }
   }
 })
