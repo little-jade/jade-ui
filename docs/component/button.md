@@ -1,64 +1,59 @@
+<script setup>
+    import DamoType from "../examples/button/type.vue";
+    import DamoSize from "../examples/button/size.vue";
+    import DamoIcon from "../examples/button/icon.vue";
+    import DamoState from "../examples/button/state.vue";
+</script>
+
 # Button 按钮
 
 ## 基础按钮
 
-::: demo
-```vue
-<template>
-  <JaButton>默认按钮</JaButton>
-</template>
-```
-:::
+<DamoType/>
 
-
+::: details 查看源代码
+<<< @/examples/button/type.vue
+::: 
 
 ## 大小
-::: demo
-```vue
-<template>
-  <JaButton size="lg">大按钮</JaButton>
-  <JaButton>正常按钮</JaButton>
-  <JaButton size="sm">小按钮</JaButton>
-</template>
-```
-:::
+<DamoSize/>
+
+::: details 查看源代码
+<<< @/examples/button/size.vue
+::: 
 
 ## 图标
-::: demo
-```vue
-<template>
-  <JaButton icon="lg">前置图标</JaButton>
-  <JaButton icon="deit"></JaButton>
-  <JaButton icon="sm" icon-position="right">后置图标</JaButton>
-</template>
-```
-:::
+<DamoIcon/>
+
+::: details 查看源代码
+<<< @/examples/button/icon.vue
+::: 
 
 ## 状态
+<DamoState/>
 
-::: demo
-```vue
-<template>
-  <JaButton disabled>不可用</JaButton>
-  <JaButton loading>加载中</JaButton>
-</template>
-```
-:::
+::: details 查看源代码
+<<< @/examples/button/state.vue
+::: 
 
 ## API
 ### props 属性
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | ---- | ---- | ----- |
-| type | elevated / filled / outlined / text | filled | 按钮类型 |
-| disabled | boolean | false | 是否不可用 |
+|:---:|:---:|:---:|:---:|
+| type | filled \| filled\-tonal \| elevated \| outlined \| text | filled | 按钮类型 |
+| size | medium \| large \| small | medium | 按钮大小 |
+| disabled | boolean | false | 不可用按钮 |
 | loading | boolean | false | 是否加载中 |
-| size | normal / large / small | normal | 按钮大小 |
-| icon | string | - | 按钮图标 |
-| icon-position | left / right | left | 图标位置 |
+| isRightIcon | boolean | false | 图标在右 |
+| circle | boolean | false | 圆形按钮 |
 
 ### slots 插槽
 | 插槽名 | 说明 |
 | ----- | ----- |
 | default | 按钮内容 |
+| icon | 按钮图标 |
 
 ### events 事件
+| name | 说明 |
+| ----- | ----- |
+| click | 点击事件 |

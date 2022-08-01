@@ -15,7 +15,8 @@ export default defineConfig({
           text: 'component',
           items: [
             { text: 'card', link: '/component/card' },
-            { text: "button", link: "/component/button" }
+            { text: "button", link: "/component/button" },
+            { text: "test", link: "/component/text" }
           ]
         }
       ],
@@ -32,8 +33,7 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
-      md.use(demoBlockPlugin)
+
     }
   }
 })

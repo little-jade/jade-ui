@@ -1,18 +1,9 @@
 import type { App } from '@vue/runtime-core'
-import { JaCard } from '@/components/card'
-import { JaButton } from '@/components/button'
+import * as components from '@/components'
+export * from '@/components'
 
-const components = [
-    JaCard,
-    JaButton
-]
-
-export {
-    JaCard,
-    JaButton
-}
 export default {
     install: function(app: App) {
-        components.forEach(comp => app.use(comp))
+        Object.values(components).forEach(comp => app.use(comp))
     }
 }
