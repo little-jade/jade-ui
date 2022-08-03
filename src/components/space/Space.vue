@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   align: "center",
   vertical: false,
 })
-const style = computed(() => `display:flex; gap:${props.gap};`)
+const style = computed(() => `display:flex; gap:${props.gap}; align-items: center`)
 const classes = computed(() => [
   'ja-space'
 ])

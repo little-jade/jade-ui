@@ -39,7 +39,7 @@ const classes = computed(() => [
   `ja-button--${props.size}`,
   `ja-button--${props.type}`,
   {
-    'ja-button--disabled': props.disabled | props.loading,
+    'ja-button--disabled': props.disabled || props.loading,
     'ja-button--circle': props.circle,
   }
 ])

@@ -1,36 +1,44 @@
 <template>
-<div class="card" :class="`card-${type} card-${state}`">
-  <div v-if="$slots.header" class="card-header">
-    <slot name="header"></slot>
+  <div :class="classes">
+    <div v-if="$slots.header" class="ja-card__header">
+      <slot name="header"></slot>
+    </div>
+    <img v-if="imgUrl" class="ja-card__img" :src="imgUrl" alt="card top img"/>
+    <!-- <div class="ja-card__body"> -->
+      <div v-if="headline" class="ja-card__title">{{ headline }}</div>
+      <div v-if="subhead" class="ja-card__subtitle">{{ subhead }}</div>
+      <div v-if="text" class="ja-card__text">{{ text }}</div>
+      <slot></slot>
+      <div v-if="$slots.actions" class="ja-card__actions">
+        <slot name="actions"></slot>
+      </div>
+    <!-- </div> -->
+    <div v-if="$slots.footer" class="ja-card__footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
-  <img v-if="imgUrl" class="card-img-top" :src="imgUrl" alt="card top img"/>
-  <div class="card-body">
-    <h1 v-if="headline" class="card-title">{{ headline }}</h1>
-    <h2 v-if="subhead">{{ subhead }}</h2>
-    <p v-if="text" class="card-text">{{ text }}</p>
-    <slot></slot>
-  </div>
-  <div v-if="$slots.footer" class="card-footer">
-    <slot name="footer"></slot>
-  </div>
-</div>
 </template>
 
 <script setup lang="ts">
-import { withDefaults } from 'vue'
-// import type { StyleValue } from 'vue'
+import { withDefaults, computed } from 'vue'
 type CardType = 'elevated' | 'filled' | 'outlined'
-type CardState = 'enabled' | 'disabled'
 interface Props {
   type?: CardType
-  state?: CardState
+  disabled?: boolean
   imgUrl?: string
   headline?: string
   subhead?: string
   text?: string
 }
-withDefaults(defineProps<Props>(), {
-  type: 'filled',
-  CardState: "enabled"
+const props = withDefaults(defineProps<Props>(), {
+  type: 'elevated',
+  disabled: false
 })
+const classes = computed(() => [
+  'ja-card',
+  `ja-card--${props.type}`,
+  {
+    'ja-card--disabled': props.disabled
+  }
+])
 </script>

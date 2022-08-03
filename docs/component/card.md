@@ -1,44 +1,34 @@
+<script setup>
+    import DamoBase from "../examples/card/base.vue";
+    import DamoImg from "../examples/card/img.vue";
+    import DamoAppend from "../examples/card/append.vue";
+</script>
+
 # Card 卡片组件
 
 ## 基础卡片
 
-::: demo
-```vue
-<JaCard 
-headline="headline" 
-subhead="subhead" 
-text="Cards should be easy to scan for relevant and actionable information. Elements like text and images should be placed on cards in a way that clearly indicates hierarchy.">
-</JaCard>
-```
-:::
+<DamoBase/>
 
+::: details 查看源代码
+<<< @/examples/card/base.vue
+::: 
 
 ## 图片卡片
 
-::: demo
-```vue
-<JaCard imgUrl="/img/card.jpg">
-<h4>headline</h4>
-<h5>subhead card</h5>
-<p>Cards should be easy to scan for relevant and actionable information. Elements like text and images should be placed on cards in a way that clearly indicates hierarchy.</p>
-<JaButton>Button</JaButton>
-</JaCard>
-```
-:::
+<DamoImg/>
+
+::: details 查看源代码
+<<< @/examples/card/img.vue
+::: 
 
 ## 卡片扩展
 
-::: demo
-```vue
-<JaCard headline="card headline">
-  <template #header>header slot</template>
-  <template #footer>footer slot</template>
-  <h4>headline</h4>
-  <h5>subhead card</h5>
-  <p>Cards should be easy to scan for relevant and actionable information. Elements like text and images should be placed on cards in a way that clearly indicates hierarchy.</p>
-</JaCard>
-```
-:::
+<DamoAppend/>
+
+::: details 查看源代码
+<<< @/examples/card/append.vue
+::: 
 
 ## API
 ### props 
