@@ -30,34 +30,34 @@ $colors: (
     inverse-primary: #D0BCFF,    
 );
 $dark-colors: (
-    primary: #6750A4,
-    primary-container: #EADDFF,
-    secondary: #625B71,
-    secondary-container: #E8DEF8,
-    tertiary: #7D5260,
-    tertiary-container: #FFD8E4,
-    surface: #FFFBFE,
-    surface-variant: #E7E0EC,
-    background: #FFFBFE,
-    error: #B3261E,
-    error-container: #F9DEDC,
-    on-primary: #FFFFFF,
-    on-primary-container: #21005E,
-    on-secondary: #FFFFFF,
-    on-secondary-container: #1E192B,
-    on-tertiary: #FFFFFF,
-    on-tertiary-container: #370B1E,
-    on-surface: #1C1B1F,
-    on-surface-variant: #49454E,
-    on-error: #FFFFFF,
-    on-error-container: #370B1E,
-    on-background: #1C1B1F,
-    outline: #79747E,
+    primary: #D0BCFF,
+    primary-container: #4F378B,
+    secondary: #CCC2DC,
+    secondary-container: #4A4458,
+    tertiary: #EFB8C8,
+    tertiary-container: #633B48,
+    surface: #1C1B1F,
+    surface-variant: #49454F,
+    background: #1C1B1F,
+    error: #F2B8B5,
+    error-container: #8C1D18,
+    on-primary: #371E73,
+    on-primary-container: #EADDFF,
+    on-secondary: #332D41,
+    on-secondary-container: #E8DEF8,
+    on-tertiary: #492532,
+    on-tertiary-container: #FFD8E4,
+    on-surface: #E6E1E5,
+    on-surface-variant: #CAC4D0,
+    on-error: #601410,
+    on-error-container: #F9DEDC,
+    on-background: #E6E1E5,
+    outline: #938F99,
     shadow: #000000,
-    surface-tint-color: #6750A4,
-    inverse-surface: #313033,
-    inverse-on-surface: #F4EFF4,
-    inverse-primary: #D0BCFF    
+    surface-tint-color: #D0BCFF,
+    inverse-surface: #E6E1E5,
+    inverse-on-surface: #313033,
+    inverse-primary: #6750A4
 );
 
 // color var
@@ -65,12 +65,14 @@ $dark-colors: (
     @each $key,$color in $colors {
         --ja-color-#{$key}: #{$color};       
     } 
-    @each $key,$color in $dark-colors {
-        --ja-color-dark-#{$key}: #{$color};       
-    }
     .dark {
         @each $key,$color in $dark-colors {
-            --ja-color-#{$key}: var(--ja-color-dark-#{$key});       
+            --ja-color-#{$key}: #{$color};
         } 
     }    
+};
+.dark {
+    @each $key,$color in $dark-colors {
+        --ja-color-#{$key}: #{$color};
+    } 
 };

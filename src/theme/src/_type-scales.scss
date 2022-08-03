@@ -1,0 +1,107 @@
+$type-scales: (
+    display-large: (
+        font-family: "Roboto Regular",
+        line-height: 64px,
+        font-size: 57px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    display-medium: (
+        font-family: "Roboto Regular",
+        line-height: 52px,
+        font-size: 45px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    display-small: (
+        font-family: "Roboto Regular",
+        line-height: 44px,
+        font-size: 36px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    headline-large: (
+        font-family: "Roboto Regular",
+        line-height: 40px,
+        font-size: 32px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    headline-medium: (
+        font-family: "Roboto Regular",
+        line-height: 36px,
+        font-size: 28px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    headline-small: (
+        font-family: "Roboto Regular",
+        line-height: 32px,
+        font-size: 24px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    title-large: (
+        font-family: "Roboto Regular",
+        line-height: 28px,
+        font-size: 22px,
+        tracking:  0,
+        font-weight: 400
+    ),
+    title-medium: (
+        font-family: "Roboto Medium",
+        line-height: 24px,
+        font-size: 16px,
+        tracking: 0.15,
+        font-weight: 500
+    ),
+    title-small: (
+        font-family: "Roboto Medium",
+        line-height: 20px,
+        font-size: 14px,
+        tracking: 0.1,
+        font-weight: 500
+    ),
+    label-large: (
+        font-family: "Roboto Medium",
+        line-height: 20px,
+        font-size: 14px,
+        tracking: 0.1,
+        font-weight: 500
+    ),
+    label-medium: (
+        font-family: "Roboto Medium",
+        line-height: 16px,
+        font-size: 12px,
+        tracking: 0.5,
+        font-weight: 500
+    ),
+    label-small: (
+        font-family: "Roboto Medium",
+        line-height: 16px,
+        font-size: 11px,
+        tracking: 0.5,
+        font-weight: 500
+    ),
+    body-large: (
+        font-family: "Roboto Medium",
+        line-height: 24px,
+        font-size: 16px,
+        tracking: 0.5,
+        font-weight: 400
+    ),
+    body-medium: (
+        font-family: "Roboto Regular",
+        line-height: 20px,
+        font-size: 14px,
+        tracking: 0.25,
+        font-weight: 400
+    ),
+    body-small: (
+        font-family: "Roboto Regular",
+        line-height: 16px,
+        font-size: 12px,
+        tracking: 0.4,
+        font-weight: 400
+    )
+);

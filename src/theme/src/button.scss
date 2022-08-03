@@ -1,63 +1,62 @@
 @use 'css-var';
 @use 'mixins';
+@use 'button_var';
 
+@mixin types {
+    @each $type,$map in button_var.$types {
+        &--#{$type} {
+            @each $key,$var in $map {
+                @if($key == "elevation"){
+                    @include mixins.elevated($var)
+                }
+                @else{
+                    #{$key}: #{$var}
+                }
+            }
+
+        }
+    }    
+}
+@mixin sizes {
+    @each $size,$map in button_var.$sizes {
+        &--#{$size} {
+            @each $key,$var in $map {
+                @if($key == "type-scale"){
+                    @include mixins.typescale($var);
+                }
+                @else{
+                    #{$key}: #{$var};
+                }
+            }
+
+        }
+    }    
+}
 .ja-button {
-    // 变量
-    --ja-button-height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;    
+    white-space: nowrap;
+    text-align: center;
+    box-sizing: border-box;
+    user-select: none;
+    overflow: hidden;
+    //
+    // height: var(--ja-button-height);
+    --ja-button-height : 40px;
+    padding: calc(var(--ja-button-height)/4) calc(var(--ja-button-height)/2);
 
-    --ja-button-font-weight: var(--ja-text-label-medium-font-weight);
-    --ja-button-font-size: var(--ja-text-label-medium-font-size);
-    --ja-button-line-height: var(--ja-text-label-medium-line-height);
-    --ja-button-font-family: var(--ja-text-label-medium-font-family);
-
-    --ja-button-border-color: rgba(0,0,0,0);
-    --ja-button-bg-color: none;
-    --ja-button-text-color: var(--ja-color-primary);
-
-    --ja-button-border-radius: var(--ja-border-radius-full);
-
-    // 
-    &--text {
-        --ja-button-text-color: var(--ja-color-on-background);
-        --ja-button-bg-color: var(--ja-color-background);
-    }
-    &--outlined {
-        --ja-button-text-color: var(--ja-color-on-background);
-        --ja-button-bg-color: var(--ja-color-background);
-        --ja-button-border-color: var(--ja-color-outline);
-    }
-    &--elevated {
-        --ja-button-text-color: var(--ja-color-on-surface);
-        --ja-button-bg-color: var(--ja-color-surface);
-        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
-        0px 1px 1px 0px rgba(0,0,0,0.14), 
-        0px 1px 3px 0px rgba(0,0,0,0.12);
-    }
-    &--filled {
-        --ja-button-bg-color: var(--ja-color-primary);
-        --ja-button-text-color: var(--ja-color-on-primary);
-    }
-    &--filled-tonal {
-        --ja-button-bg-color: var(--ja-color-secondary-container);
-        --ja-button-text-color: var(--ja-color-on-secondary-container);
-    }
-    &--small {
-        --ja-button-height: 28px;
-        --ja-button-font-weight: var(--ja-text-label-small-font-weight);
-        --ja-button-font-size: var(--ja-text-label-small-font-size);
-        --ja-button-line-height: var(--ja-text-label-small-line-height);
-        --ja-button-font-family: var(--ja-text-label-small-font-family);
-    }
-    &--large {
-        --ja-button-height: 40px;
-        --ja-button-font-weight: var(--ja-text-label-large-font-weight);
-        --ja-button-font-size: var(--ja-text-label-large-font-size);
-        --ja-button-line-height: var(--ja-text-label-large-line-height);
-        --ja-button-font-family: var(--ja-text-label-large-font-family);
-    }
+    // 过渡
+    transition-duration: .28s;
+    transition-property: box-shadow,transform,opacity;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    @include mixins.corner('full');
+    @include mixins.state-layer;
+    @include types;
+    @include sizes;
     &--circle {
-        --ja-button-border-radius: var(--ja-border-radius-circle);
         width: var(--ja-button-height);
+        @include mixins.corner('circle');
     }
     &--loading {
         --ja-button-text-color: var(--ja-color-on-surface) 38%;
@@ -66,67 +65,12 @@
         transition: none;
     }
     &--disabled {
-        --ja-button-text-color: var(--ja-color-on-surface);
-        --ja-button-bg-color: var(--ja-color-surface);
+        // --ja-button-text-color: var(--ja-color-on-surface);
+        // --ja-button-bg-color: var(--ja-color-surface);
         opacity: 58%;        
         pointer-events: none;
         cursor: not-allowed;
     }
-    //
-    &:hover,
-    &:focus {
-        &::before {
-            opacity:0.1;
-        }
-    }
-    &:active {
-        &::before {
-            opacity:0.2;
-        }
-    }
-    &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        background-color: black;
-        pointer-events: none;
-    }
-
-    // 布局
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;    
-    white-space: nowrap;
-    text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    user-select: none;
-    -webkit-appearance: none;
-    overflow: hidden;
-    // 过渡
-    transition-duration: .28s;
-    transition-property: box-shadow,transform,opacity;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
-
-    
-    // 
-    color: var(--ja-button-text-color);
-    background-color: var(--ja-button-bg-color);
-    border: 1px solid;
-    border-color: var(--ja-button-border-color);    
-    border-radius: var(--ja-button-border-radius);
-    // font
-    font-family: var(--ja-button-font-family);
-    font-size: var(--ja-button-font-size);
-    font-weight: var(--ja-button-font-weight);
-    line-height: var(--ja-button-height);
-    height: var(--ja-button-height);
-    padding: calc(var(--ja-button-height)/4) calc(var(--ja-button-height)/2);
 
     &__prepend {
         margin-right: calc(var(--ja-button-height)/5);

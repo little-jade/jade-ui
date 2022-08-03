@@ -1,0 +1,36 @@
+$sizes: (
+    large: (
+        type-scale: "label-large",
+        height: 48px
+    ),
+    medium: (
+        type-scale: "label-medium",
+        height: 40px
+    ),
+    small: (
+        type-scale: "label-small",
+        height: 32px
+    )
+);
+$types: (
+    text: (
+        color: var(--ja-color-on-background)
+    ),
+    outlined: (
+        border: 1px solid var(--ja-color-outline),
+        color: var(--ja-color-on-background)
+    ),
+    elevated: (
+        elevation: 1,
+        background-color: var(--ja-color-surface),
+        color: var(--ja-color-on-background)
+    ),
+    filled: (
+        background-color: var(--ja-color-primary),
+        color: var(--ja-color-on-primary)
+    ),
+    filled-tonal: (
+        background-color: var(--ja-color-secondary-container),
+        color: var(--ja-color-on-secondary-container)
+    )
+);

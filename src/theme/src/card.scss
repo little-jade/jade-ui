@@ -1,0 +1,65 @@
+@use 'css-var';
+@use 'mixins';
+
+@mixin container-outlined {
+    border: 1px solid var(--ja-color-outline);
+    color: var(--ja-color-on-background);
+}
+@mixin container-elevated {
+    background-color: var(--ja-color-surface);
+    color: var(--ja-color-on-surface);
+    @include mixins.elevated(1);
+}
+@mixin container-filled {
+    background-color: var(--ja-color-surface-variant);
+    color: var(--ja-color-on-surface-variant);
+}
+
+.ja-card {
+    @include mixins.corner("large");
+    overflow: hidden;
+
+    &--outlined {
+        @include container-outlined();
+    }
+    &--elevated {
+        @include container-elevated()
+    }
+    &--filled {
+        @include container-filled()
+    }
+
+    &--disabled {
+        opacity: 0.5;
+    }
+    &:hover, 
+    &:focus {
+        @include mixins.elevated(2);
+    }
+
+    &__header {}
+    &__footer {}
+    &__img {}
+    &__body {
+        // padding: 20px;
+    }
+    &__title {
+        @include mixins.typescale('title-large');
+        margin: 16px 16px 0 16px;
+    }
+    &__subtitle {
+        @include mixins.typescale('title-medium');
+        margin: 0 16px 16px 16px;
+        opacity: 60%;
+    }
+    &__text {
+        @include mixins.typescale('body-medium');
+        margin: 16px;
+    }
+    &__actions {
+        margin: 16px;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+}
