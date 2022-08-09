@@ -19,7 +19,6 @@
     transition-property: box-shadow,transform,opacity;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
 
-
     @include mixins.corner('full');
     @include mixins.state-layer;
     &--outlined {
@@ -54,10 +53,6 @@
         @include mixins.corner('circle');
     }
     &--disabled {
-        // @include mixins.container-filled(
-        //     var(--ja-color-primary),
-        //     var(--ja-color-on-primary)
-        // );
         opacity: 50%;       
         pointer-events: none;
         cursor: not-allowed;

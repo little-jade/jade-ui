@@ -6,7 +6,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [
+    vue({
+      reactivityTransform: true
+    }), 
+    vueJsx()
+  ],
   resolve: {
     alias: {
       '@theme': fileURLToPath(new URL('./src/theme/scss', import.meta.url)),

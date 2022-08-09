@@ -37,9 +37,6 @@
         border-bottom: none;
     }
     &__img {}
-    &__body {
-        // padding: 20px;
-    }
     &__title {
         @include mixins.typescale('title-large');
         margin: 16px 16px 0 16px;
@@ -55,8 +52,5 @@
     }
     &__actions {
         margin: 16px;
-        display: flex;
-        gap: 10px;
-        justify-content: flex-end;
     }
 }

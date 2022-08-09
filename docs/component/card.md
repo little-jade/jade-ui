@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import DamoBase from "../examples/card/base.vue";
     import DamoImg from "../examples/card/img.vue";
     import DamoAppend from "../examples/card/append.vue";
@@ -31,7 +31,7 @@
 <<< @/examples/card/append.vue
 ::: 
 
-## 卡片状态
+## 不可用状态
 
 <DamoState/>
 
