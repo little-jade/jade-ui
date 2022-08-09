@@ -5,6 +5,21 @@ import {CashOutline} from '@vicons/ionicons5'
 import {ArrowForwardCircle} from '@vicons/ionicons5'
 import { Icon } from '@vicons/utils'
 
+const styles = [
+  "background-color: white;",
+  "background-color: #ebf7e5;",
+  "background-color: #ceecc0;",
+  "background-color: #b2e19b;",
+  "background-color: #95d676;",
+  "background-color: #78ca51;",
+  "background-color: #5fb436;",
+  "background-color: #4c8f2b;",
+  "background-color: #386a20;",
+  "background-color: #2a5018;",
+  "background-color: #1c3510;",
+  "background-color: #0e1b08;",
+  "background-color: black;"
+]
 </script>
 
 <template>
@@ -75,6 +90,10 @@ import { Icon } from '@vicons/utils'
   <h2>subhead card</h2>
   <p>Cards should be easy to scan for relevant and actionable information. Elements like text and images should be placed on cards in a way that clearly indicates hierarchy.</p>
       </JaCard>
+
+      <div style="display: flex">
+        <div v-for="item in styles" style="width:50px;height:50px;" :style="item"></div>
+      </div>
     </div>
   </header>
 

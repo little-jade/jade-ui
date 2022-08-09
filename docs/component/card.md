@@ -2,6 +2,7 @@
     import DamoBase from "../examples/card/base.vue";
     import DamoImg from "../examples/card/img.vue";
     import DamoAppend from "../examples/card/append.vue";
+    import DamoState from "../examples/card/state.vue";
 </script>
 
 # Card 卡片组件
@@ -28,6 +29,14 @@
 
 ::: details 查看源代码
 <<< @/examples/card/append.vue
+::: 
+
+## 卡片状态
+
+<DamoState/>
+
+::: details 查看源代码
+<<< @/examples/card/state.vue
 ::: 
 
 ## API
