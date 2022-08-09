@@ -1,37 +1,5 @@
-@use 'css-var';
 @use 'mixins';
-@use 'button_var';
 
-@mixin types {
-    @each $type,$map in button_var.$types {
-        &--#{$type} {
-            @each $key,$var in $map {
-                @if($key == "elevation"){
-                    @include mixins.elevated($var)
-                }
-                @else{
-                    #{$key}: #{$var}
-                }
-            }
-
-        }
-    }    
-}
-@mixin sizes {
-    @each $size,$map in button_var.$sizes {
-        &--#{$size} {
-            @each $key,$var in $map {
-                @if($key == "type-scale"){
-                    @include mixins.typescale($var);
-                }
-                @else{
-                    #{$key}: #{$var};
-                }
-            }
-
-        }
-    }    
-}
 .ja-button {
     display: inline-flex;
     justify-content: center;
@@ -42,32 +10,55 @@
     user-select: none;
     overflow: hidden;
     //
-    // height: var(--ja-button-height);
-    --ja-button-height : 40px;
+    --ja-button-height : 3em;
+    height: var(--ja-button-height);
     padding: calc(var(--ja-button-height)/4) calc(var(--ja-button-height)/2);
 
     // 过渡
     transition-duration: .28s;
     transition-property: box-shadow,transform,opacity;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
+
+
     @include mixins.corner('full');
     @include mixins.state-layer;
-    @include types;
-    @include sizes;
+    &--outlined {
+        @include mixins.container-outlined;
+    }
+    &--elevated {
+        @include mixins.container-elevated;
+    }
+    &--filled {
+        @include mixins.container-filled(
+            var(--ja-color-primary), 
+            var(--ja-color-on-primary)
+        );
+    }
+    &--filled-tonal {
+        @include mixins.container-filled(
+            var(--ja-color-secondary-container), 
+            var(--ja-color-on-secondary-container)
+        );
+    }
+    &--small {
+        @include mixins.typescale("label-small");
+    }
+    &--medium {
+        @include mixins.typescale("label-medium");
+    }
+    &--large {
+        @include mixins.typescale("label-large");
+    }
     &--circle {
         width: var(--ja-button-height);
         @include mixins.corner('circle');
     }
-    &--loading {
-        --ja-button-text-color: var(--ja-color-on-surface) 38%;
-        --ja-button-bg-color: var(--ja-color-primary) 32%;
-        pointer-events: none;
-        transition: none;
-    }
     &--disabled {
-        // --ja-button-text-color: var(--ja-color-on-surface);
-        // --ja-button-bg-color: var(--ja-color-surface);
-        opacity: 58%;        
+        // @include mixins.container-filled(
+        //     var(--ja-color-primary),
+        //     var(--ja-color-on-primary)
+        // );
+        opacity: 50%;       
         pointer-events: none;
         cursor: not-allowed;
     }

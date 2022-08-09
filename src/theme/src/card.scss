@@ -1,44 +1,41 @@
-@use 'css-var';
 @use 'mixins';
-
-@mixin container-outlined {
-    border: 1px solid var(--ja-color-outline);
-    color: var(--ja-color-on-background);
-}
-@mixin container-elevated {
-    background-color: var(--ja-color-surface);
-    color: var(--ja-color-on-surface);
-    @include mixins.elevated(1);
-}
-@mixin container-filled {
-    background-color: var(--ja-color-surface-variant);
-    color: var(--ja-color-on-surface-variant);
-}
 
 .ja-card {
     @include mixins.corner("large");
     overflow: hidden;
 
     &--outlined {
-        @include container-outlined();
+        @include mixins.container-outlined;
     }
     &--elevated {
-        @include container-elevated()
+        @include mixins.container-elevated;
     }
     &--filled {
-        @include container-filled()
+        @include mixins.container-filled(
+            var(--ja-color-surface-variant),
+            var(--ja-color-on-surface-variant)
+        );
     }
 
     &--disabled {
         opacity: 0.5;
+        pointer-events: none;
     }
     &:hover, 
     &:focus {
         @include mixins.elevated(2);
     }
 
-    &__header {}
-    &__footer {}
+    &__header,
+    &__footer {
+        @include mixins.typescale('title-large');
+        padding: 16px;
+        border-bottom: 1px solid var(--ja-color-outline);
+    }
+    &__footer {
+        border-top: 1px solid var(--ja-color-outline);
+        border-bottom: none;
+    }
     &__img {}
     &__body {
         // padding: 20px;

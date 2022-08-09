@@ -1,0 +1,7 @@
+@use '../vars/typescale';
+
+@mixin typescale($key) {
+    @each $arr,$val in map-get(typescale.$type-scales, $key) {
+        #{$arr}: #{$val};
+    }
+}

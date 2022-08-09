@@ -1,0 +1,8 @@
+@use 'mixins';
+
+:root {
+    @include mixins.color-light;
+}
+.dark {
+    @include mixins.color-dark;
+}

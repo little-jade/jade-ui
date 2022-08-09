@@ -1,0 +1,32 @@
+@use '../vars/elevation' as elevations;
+
+@mixin elevated($z) {
+    box-shadow: map-get(elevations.$shadow-key-umbra, $z),
+    map-get(elevations.$shadow-key-penumbra, $z),
+    map-get(elevations.$shadow-key-ambient, $z);
+}
+
+@mixin container-outlined {
+    border: 1px solid var(--ja-color-outline);
+}
+@mixin container-elevated {
+    @include elevated(1);
+    background-color: var(--ja-color-surface);
+    color: var(--ja-color-on-surface);
+}
+@mixin container-filled($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+$corner-scales: (
+    none: 0,
+    small: 4px,
+    medium: 8px,
+    large: 16px,
+    full: 999px,
+    circle: 50%
+);
+@mixin corner($key) {
+    border-radius: map-get($corner-scales, $key);
+}

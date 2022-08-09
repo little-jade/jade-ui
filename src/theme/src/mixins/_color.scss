@@ -1,0 +1,12 @@
+@use '../vars/color';
+
+@mixin color-light {
+    @each $key, $var in color.$light {
+        --ja-color-#{$key}: #{$var};
+    }
+}
+@mixin color-dark {
+    @each $key, $var in color.$dark {
+        --ja-color-#{$key}: #{$var};
+    }
+}

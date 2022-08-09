@@ -1,0 +1,25 @@
+@mixin state-layer {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background-color: currentColor;
+        pointer-events: none;
+    }
+    &:hover,
+    &:focus {
+        &::before {
+            opacity:0.1;
+        }
+    }
+    &:active {
+        &::before {
+            opacity:0.2;
+        }
+    }
+}

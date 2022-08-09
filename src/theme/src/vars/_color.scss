@@ -1,5 +1,5 @@
 // Color system
-$colors: (
+$light: (
     primary: #6750A4,
     primary-container: #EADDFF,
     secondary: #625B71,
@@ -29,7 +29,7 @@ $colors: (
     inverse-on-surface: #F4EFF4,
     inverse-primary: #D0BCFF,    
 );
-$dark-colors: (
+$dark: (
     primary: #D0BCFF,
     primary-container: #4F378B,
     secondary: #CCC2DC,
@@ -59,20 +59,3 @@ $dark-colors: (
     inverse-on-surface: #313033,
     inverse-primary: #6750A4
 );
-
-// color var
-:root {
-    @each $key,$color in $colors {
-        --ja-color-#{$key}: #{$color};       
-    } 
-    .dark {
-        @each $key,$color in $dark-colors {
-            --ja-color-#{$key}: #{$color};
-        } 
-    }    
-};
-.dark {
-    @each $key,$color in $dark-colors {
-        --ja-color-#{$key}: #{$color};
-    } 
-};
