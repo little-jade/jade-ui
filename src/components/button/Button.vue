@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import {Loading3QuartersOutlined as LoadingIcon} from '@vicons/antd'
-import { Icon } from '@vicons/utils'
+import Icon from '../icon/Icon.vue'
 import { withDefaults, computed } from 'vue'
 type ButtonType = "elevated" | "filled" | "outlined" | "text" | "filled-tonal"
 type ButtonSize = "medium" | "large" | "small"
