@@ -2,6 +2,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/jade-ui/',
   title: 'JadeUI',
   description: 'Just playing around.',
   themeConfig: {
