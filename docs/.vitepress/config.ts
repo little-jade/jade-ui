@@ -17,7 +17,6 @@ export default defineConfig({
           items: [
             { text: 'card', link: '/component/card' },
             { text: "button", link: "/component/button" },
-            { text: "test", link: "/component/text" }
           ]
         }
       ],
