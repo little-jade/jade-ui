@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import {CashOutline} from '@vicons/ionicons5'
-import {ArrowForwardCircle} from '@vicons/ionicons5'
-import { Icon } from '@vicons/utils'
+import HelloWorld from "./components/HelloWorld.vue";
+import TheWelcome from "./components/TheWelcome.vue";
+import { CashOutline } from "@vicons/ionicons5";
+import { ArrowForwardCircle } from "@vicons/ionicons5";
+import { Icon } from "@vicons/utils";
 
 const styles = [
   "background-color: white;",
@@ -18,21 +18,27 @@ const styles = [
   "background-color: #2a5018;",
   "background-color: #1c3510;",
   "background-color: #0e1b08;",
-  "background-color: black;"
-]
+  "background-color: black;",
+];
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <JaCard 
-      imgUrl="/src/assets/card.jpg"
-      headline="Headline"
-      subhead="Subline"
-      text="Some quick example text to build on the card title and make up the bulk of the card's content."
+      <JaCard
+        imgUrl="/src/assets/card.jpg"
+        headline="Headline"
+        subhead="Subline"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
       >
         <template #header>Header </template>
 
@@ -43,56 +49,63 @@ const styles = [
         <JaButton type="elevated">Action</JaButton>
       </JaCard>
       <div>
-      <JaButton size="small">Button</JaButton>
-      <JaButton>Button</JaButton>
-      <JaButton size="large">Button</JaButton>
+        <JaButton size="small">Button</JaButton>
+        <JaButton>Button</JaButton>
+        <JaButton size="large">Button</JaButton>
       </div>
-<div>
-      <JaButton size="small" isRightIcon>Button
-        <template #icon>
-          <ArrowForwardCircle></ArrowForwardCircle>
-        </template>
-      </JaButton>
+      <div>
+        <JaButton size="small" isRightIcon
+          >Button
+          <template #icon>
+            <ArrowForwardCircle></ArrowForwardCircle>
+          </template>
+        </JaButton>
 
-     
-
-
-      
-
-      <JaButton size="large">
-        <template #icon>
-          <CashOutline></CashOutline>
-        </template>     
-      </JaButton>
-      <JaButton size="large">Button
-        <template #icon>
-          <Icon>
-          <CashOutline></CashOutline>
-          </Icon>
-        </template>     
-      </JaButton>
-      
-</div>
-<div>
-      <JaButton disabled>Button</JaButton>
-      <JaButton loading>Button</JaButton>
-      <JaButton loading isRightIcon>Button</JaButton>
-      <JaButton size="small" circle><Icon><CashOutline></CashOutline></Icon></JaButton>
-      <JaButton circle><Icon><CashOutline></CashOutline></Icon></JaButton>
-      <JaButton size="large" circle><Icon><CashOutline></CashOutline></Icon></JaButton>
-    </div>
-
-      
-
+        <JaButton size="large">
+          <template #icon>
+            <CashOutline></CashOutline>
+          </template>
+        </JaButton>
+        <JaButton size="large"
+          >Button
+          <template #icon>
+            <Icon>
+              <CashOutline></CashOutline>
+            </Icon>
+          </template>
+        </JaButton>
+      </div>
+      <div>
+        <JaButton disabled>Button</JaButton>
+        <JaButton loading>Button</JaButton>
+        <JaButton loading isRightIcon>Button</JaButton>
+        <JaButton size="small" circle
+          ><Icon><CashOutline></CashOutline></Icon
+        ></JaButton>
+        <JaButton circle
+          ><Icon><CashOutline></CashOutline></Icon
+        ></JaButton>
+        <JaButton size="large" circle
+          ><Icon><CashOutline></CashOutline></Icon
+        ></JaButton>
+      </div>
 
       <JaCard>
         <h1>headline</h1>
-  <h2>subhead card</h2>
-  <p>Cards should be easy to scan for relevant and actionable information. Elements like text and images should be placed on cards in a way that clearly indicates hierarchy.</p>
+        <h2>subhead card</h2>
+        <p>
+          Cards should be easy to scan for relevant and actionable information.
+          Elements like text and images should be placed on cards in a way that
+          clearly indicates hierarchy.
+        </p>
       </JaCard>
 
       <div style="display: flex">
-        <div v-for="item in styles" style="width:50px;height:50px;" :style="item"></div>
+        <div
+          v-for="item in styles"
+          style="width: 50px; height: 50px"
+          :style="item"
+        ></div>
       </div>
     </div>
   </header>
@@ -103,7 +116,7 @@ const styles = [
 </template>
 
 <style>
-@import './assets/base.css';
+@import "./assets/base.css";
 
 #app {
   max-width: 1280px;

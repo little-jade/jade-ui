@@ -5,11 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
-const style = computed(() => `
+const style = computed(
+  () => `
     width: 1em;
     height: 1em;
     display: inline-flex;
-`)
+`
+);
 </script>
