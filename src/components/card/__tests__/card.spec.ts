@@ -1,5 +1,4 @@
 import { describe, it, expect } from "vitest";
-
 import { mount } from "@vue/test-utils";
 import Card from "../Card.vue";
 
@@ -51,5 +50,23 @@ describe("Card", () => {
       "<div>Actions</div>"
     );
     expect(wrapper.find(".ja-card").html()).toContain("<div>Default</div>");
+  });
+  it("change props reactive", async () => {
+    const wrapper = mount(Card, {
+      props: {
+        type: "outlined",
+        disabled: true,
+      },
+    });
+    const card = wrapper.get(".ja-card");
+    expect(card.classes()).contain("ja-card--outlined");
+    expect(card.classes()).contain("ja-card--disabled");
+    await wrapper.setProps({
+      type: "filled",
+      disabled: false,
+    });
+    expect(card.classes()).contain("ja-card--filled");
+    expect(card.classes()).not.contain("ja-card--outlined");
+    expect(card.classes()).not.contain("ja-card--disabled");
   });
 });
