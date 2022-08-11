@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { withDefaults, computed } from "vue";
 interface Props {
   type?: "elevated" | "filled" | "outlined";
   disabled?: boolean;
@@ -27,12 +27,15 @@ interface Props {
   subhead?: string;
   text?: string;
 }
-const { type = "elevated", disabled = false } = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  type: "elevated",
+  disabled: false,
+});
 const classes = computed(() => [
   "ja-card",
-  `ja-card--${type}`,
+  `ja-card--${props.type}`,
   {
-    "ja-card--disabled": disabled,
+    "ja-card--disabled": props.disabled,
   },
 ]);
 </script>
