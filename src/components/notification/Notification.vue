@@ -1,51 +1,64 @@
 <template>
-        <div :class="classes" v-if="visible">
-            <p>{{ message }}</p>
-        </div>
+    <div :class="classes">
+        <button class="ja-notice__close" @click="close()">X</button>
+        <h3>{{ title }}</h3>
+        <p>{{ content }}</p>
+    </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted, onUnmounted } from 'vue';
 
 export interface Props {
-    visible?: boolean
     title?: string
-    message?: string
+    content?: string
     type?: string
     hasCancle?: boolean
     duration?: number
 }
 const props = withDefaults(defineProps<Props>(), {
-    visible: true,
-    message: 'test message',
+    title: 'notice title',
+    content: 'notice content',
     type: 'info',
-    duration: 10000
+    hasCancle: true,
+    duration: 0
 });
 const classes = computed(() => [
-  "ja-message",
-  `ja-message--${props.type}`,
+  "ja-notice",
+  `ja-notice--${props.type}`,
 ]);
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
-
-setTimeout(() => {
-    emit('close')
-}, props.duration);
+let timer:number;
+onMounted(()=>{
+    if(props.duration == 0) return;
+    timer = setTimeout(()=>{close()}, props.duration);
+});
+onUnmounted(()=>{
+    clearTimeout(timer);
+});
+function close() {
+    emit('close');
+}
 </script>
 <style>
-.ja-message {
+.ja-notice {
     background-color: #fff;
     padding: 20px;
     width: 300px;
     color: #000;
 }
-.ja-message--success {
+.ja-notice--success {
     color: green;
 }
-.ja-message--error {
+.ja-notice--error {
     color: red;
 }
-.ja-message--warning {
+.ja-notice--warning {
     color: orange;
+}
+.ja-notice__close {
+    float: right;
+    z-index: 1;
 }
 </style>

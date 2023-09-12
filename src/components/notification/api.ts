@@ -32,6 +32,7 @@ function createNoticeGroup(placement: string) {
         },
         onAllRemoved(){
             render(null, container);
+            placementMap.delete(placement);
         }
     };
     const vm = h(NotificationGroup, props);
@@ -44,7 +45,7 @@ function createNoticeGroup(placement: string) {
             notices.value.push(notice);
         },
         clear() {
-            notices.value = notices.value.slice(1);
+            notices.value = [];
         }
     }
 }
@@ -61,8 +62,6 @@ function add(config:OpenConfig) {
     const instance: Notice = {
         ...config, 
         key,
-        title: key,
-        content: key,
     };
     getGroup(placement).add(instance);
 }
@@ -72,13 +71,8 @@ function clear() {
     }
 }
 export default {
-    open(message:string) {
-        add({
-            title: message,
-            content: '',
-            placement: 'top-right',
-            type: 'info'
-        });
+    open(config: OpenConfig) {
+        add(config);
     },
     clear() {
         clear();
