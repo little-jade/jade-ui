@@ -1,8 +1,8 @@
 import { ref, watch, h, render, shallowRef, computed, reactive, watchEffect } from "vue";
 import NotificationGroup from './NotificationGroup.vue';
 
-type Placement = 'top'|'top-left'|'top-right'|'bottom'|'bottom-left'|'bottom-right';
-type NoticeType = 'success'|'info'
+export type Placement = 'top'|'top-left'|'top-right'|'bottom'|'bottom-left'|'bottom-right';
+export type NoticeType = 'success'|'info'
 
 interface Notice {
     key: string
@@ -12,11 +12,13 @@ interface Notice {
     onClose?: ()=>void
 }
 
-interface OpenConfig {
-    placement: Placement
+export interface OpenConfig {
+    placement?: Placement
     title: string
     content: string
-    type: NoticeType
+    type?: NoticeType
+    duration?: number
+    showClose?: boolean
 }
 
 let index = 0;

@@ -12,13 +12,13 @@
 
 
     &--success {
-        color: var(--ja-color-success);
+        color: green;
     }
     &--error {
         color: var(--ja-color-error);
     }
     &--warning {
-        color: var(--ja-color-warning);
+        color: orange;
     }
 
     &__close {

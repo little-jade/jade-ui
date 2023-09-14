@@ -1,2 +1,2 @@
-import api from './api'
-export default api
+export * from './api'
+export {default as default} from './api'

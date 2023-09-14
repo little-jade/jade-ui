@@ -1,6 +1,6 @@
 <template>
     <div :class="classes">
-        <button v-if="hasCancle" class="ja-notification__close" @click="close()">X</button>
+        <button v-if="showClose" class="ja-notification__close" @click="close()">X</button>
         <h3 class="ja-notification__title">{{ title }}</h3>
         <p class="ja-notification__content">{{ content }}</p>
     </div>
@@ -12,15 +12,15 @@ export interface Props {
     title?: string
     content?: string
     type?: string
-    hasCancle?: boolean
+    showClose?: boolean
     duration?: number
 }
 const props = withDefaults(defineProps<Props>(), {
     title: 'notice title',
     content: 'notice content',
     type: 'info',
-    hasCancle: true,
-    duration: 0
+    showClose: true,
+    duration: 4500
 });
 const classes = computed(() => [
   "ja-notification",
