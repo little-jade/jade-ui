@@ -1,4 +1,4 @@
-import { ref, watch, h, render, shallowRef, computed, reactive, watchEffect } from "vue";
+import { ref, h, render } from "vue";
 import NotificationGroup from './NotificationGroup.vue';
 
 export type Placement = 'top'|'top-left'|'top-right'|'bottom'|'bottom-left'|'bottom-right';
@@ -13,7 +13,7 @@ interface Notice {
 }
 
 export interface OpenConfig {
-    placement?: Placement
+    placement: Placement
     title: string
     content: string
     type?: NoticeType
@@ -24,7 +24,7 @@ export interface OpenConfig {
 let index = 0;
 const placementMap = new Map();
 
-function createNoticeGroup(placement: string) {
+function createNoticeGroup(placement: Placement) {
     const notices = ref<Notice[]>([]);
     const props = {
         notices: notices,
@@ -51,7 +51,7 @@ function createNoticeGroup(placement: string) {
         }
     }
 }
-function getGroup(placement:string) {
+function getGroup(placement:Placement) {
     if(placementMap.has(placement)) return placementMap.get(placement);
     const group = createNoticeGroup(placement);
     placementMap.set(placement, group);

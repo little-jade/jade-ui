@@ -1,0 +1,43 @@
+@use 'mixins';
+.ja-dialog__overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    background-color: #0003;
+    justify-content: center;
+    align-items: center;
+}
+.ja-dialog {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    color: #000;
+
+    @include mixins.container-elevated;
+    @include mixins.corner('small');
+
+
+    &__close {
+        float: right;
+        border: none;
+        background: none;
+        cursor: pointer;
+        z-index: 1;
+    }
+    &__title {
+        @include mixins.typescale('title-large');
+        margin-bottom: 20px;
+    }
+    &__content {
+        @include mixins.typescale('body-medium');
+    }
+    &__action {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+}

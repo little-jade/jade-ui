@@ -9,6 +9,7 @@ const message: Record<string,any> = {};
             title: content,
             content: '',
             showClose: false,
+            duration: 2500,
             type: type as NoticeType
         });
     }
