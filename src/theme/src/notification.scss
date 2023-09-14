@@ -1,0 +1,96 @@
+@use 'mixins';
+
+.ja-notification {
+    
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    color: #000;
+    // border: 1px solid #000;
+    @include mixins.container-elevated;
+    @include mixins.corner('small');
+
+
+    &--success {
+        color: var(--ja-color-success);
+    }
+    &--error {
+        color: var(--ja-color-error);
+    }
+    &--warning {
+        color: var(--ja-color-warning);
+    }
+
+    &__close {
+        float: right;
+        z-index: 1;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    &__title {
+        @include mixins.typescale('title-medium');
+    }
+    &__content {
+        @include mixins.typescale('body-medium');
+    }
+}
+.ja-notification-group {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    gap:20px;
+    padding:40px;
+    pointer-events: none;
+
+    &--top {
+        justify-content: flex-start;
+        --translateY: -100%;
+    }
+    &--bottom
+    {
+        justify-content: flex-end;
+        --translateY: 100%;
+    }
+    &--left
+    {
+        align-items: flex-start;
+        --translateX: -100%;
+        --translateY: 0;
+    }
+    &--right
+    {
+        align-items: flex-end;
+        --translateX: 100%;
+        --translateY: 0;
+    } 
+    &__item {
+        pointer-events: auto;
+    }
+
+}
+
+/* 1. 声明过渡效果 */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. 声明进入和离开的状态 */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translate(var(--translateX,0),var(--translateY,0));
+}
+
+/* 3. 确保离开的项目被移除出了布局流
+      以便正确地计算移动时的动画效果。 */
+.fade-leave-active {
+  position: absolute;
+}

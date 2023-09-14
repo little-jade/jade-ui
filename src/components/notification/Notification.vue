@@ -1,8 +1,8 @@
 <template>
     <div :class="classes">
-        <button class="ja-notice__close" @click="close()">X</button>
-        <h3>{{ title }}</h3>
-        <p>{{ content }}</p>
+        <button v-if="hasCancle" class="ja-notification__close" @click="close()">X</button>
+        <h3 class="ja-notification__title">{{ title }}</h3>
+        <p class="ja-notification__content">{{ content }}</p>
     </div>
 </template>
 <script setup lang="ts">
@@ -23,8 +23,8 @@ const props = withDefaults(defineProps<Props>(), {
     duration: 0
 });
 const classes = computed(() => [
-  "ja-notice",
-  `ja-notice--${props.type}`,
+  "ja-notification",
+  `ja-notification--${props.type}`,
 ]);
 const emit = defineEmits<{
   (e: 'close'): void
@@ -41,24 +41,3 @@ function close() {
     emit('close');
 }
 </script>
-<style>
-.ja-notice {
-    background-color: #fff;
-    padding: 20px;
-    width: 300px;
-    color: #000;
-}
-.ja-notice--success {
-    color: green;
-}
-.ja-notice--error {
-    color: red;
-}
-.ja-notice--warning {
-    color: orange;
-}
-.ja-notice__close {
-    float: right;
-    z-index: 1;
-}
-</style>
